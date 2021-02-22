@@ -1,10 +1,24 @@
-// set inital value to zero
-let count = 2;
+
 // select value and buttons
 const value = document.querySelector("#value");
 const btns = document.querySelectorAll(".btn");
 
-console.log(btns)
+const companies = ["Uber", "Lyft", "Google", "Apple", "SpaceX", "Tinder"]
+const animals = ["Aardvark", "Blue Footed Booby", "Flying Dragon", "Giraffe Weevil", "Hammerhead Slug", "Komodo Dragon", "Naked Mole Rat", "Okapi", "Red Panda"]
+const vowels = ["A", "E", "I", "O", "U"]
+
+function addInfor(){
+  value.innerHTML = "";//rest the content,each time before the new content add
+  for (let i = 0; i < 5; i++) {
+    const companyName = companies[Math.floor(Math.random() * companies.length)]
+
+    const firstLetter = companyName.charAt(0)
+    const companyString = "My company is a" + ((vowels.indexOf(firstLetter) > -1) ? "n " : " ") + companyName + " for " + animals[Math.floor(Math.random() * animals.length)] + "s!<br />"
+    //add infor string to value <span>
+    value.innerHTML += companyString
+  }
+}
+
 
 // for (let i = 0; i < btns.length; i++) {
 //   // btn.addEventListener()
